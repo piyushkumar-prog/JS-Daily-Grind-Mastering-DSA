@@ -2,6 +2,7 @@
 This repository chronicles my exploration of various data structures (arrays, linked lists, trees, etc.) and algorithms (sorting, searching, graph traversal, etc.). I'll be delving into problem-solving, practicing code implementation, and gradually venturing into more advanced topics. Feel free to contribute or join the discussion!
 
 
+-----------------------------------------------------------------------------------------
 # DSA DAY 1 : Conquering Fibonacci
 
 ### Using loop:
@@ -78,3 +79,12 @@ if (newprev <= n) {
 
 fibo(0,1,100);
 ```
+
+
+
+----------------------------------------------------------------------------
+
+### Follow this series on:
+[![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
+[![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
+[![X](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/twitterx.png)](https://www.x.com/Piyushkr_prog)
