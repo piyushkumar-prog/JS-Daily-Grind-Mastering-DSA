@@ -52,7 +52,7 @@ while (newprev <= 100) {
 }
 ```
 
-### Using Resursion:
+### Using Recursion:
 
 #### Algorithm:
 1. Define a function `fibo(prev1, prev2, n)`:
@@ -62,7 +62,7 @@ while (newprev <= 100) {
 - If the new Fibonacci number is less than or equal to `n`:
    - Output the new Fibonacci number to the console.
    - Recursively call the fibo function with `prev2` as `prev1`, the new Fibonacci number as `prev2`, and `n`.
-   - 
+
 2. Call the `fibo` function with initial values `prev1 = 0`, `prev2 = 1`, and `n = 100`.
 
 
@@ -87,13 +87,16 @@ fibo(0,1,100);
 
 #### Algorithm:
 
-1. Initialize an array named array with random values.
+1. Initialize an array named `array` with random values.
+
 2. Set the variable snum to the first element of the array `array[0]`.
+
 3. Start a loop from index `1` to the length of the array `array.length`:
      - Compare each element of the array with `snum`.
      - If the current element `array[i]` is less than `snum`.
           - Update snum to be equal to the current element `array[i]`.
-4. Output snum to the console.
+         
+4. Output `snum `to the console.
 
 
 #### Implementation:
@@ -114,12 +117,12 @@ console.log(snum);
 
 #### Algorithm:
 1. Define a function named `bubbleSort` that takes an array `arr` as input:
-    - Let `n` be the length of the array `arr`.
-    - For `i` from `0 to n - 2`:
-        - For `j` from `0 to n - i - 2`:
-            - If `arr[j]` is greater than `arr[j + 1]`:
-                - Swap `arr[j]` and `arr[j + 1]`.
-    - Return the sorted array `arr`.
+   - Let `n` be the length of the array `arr`.
+   - For `i` from `0 to n - 2`:
+      - For `j` from `0 to n - i - 2`:
+        - If `arr[j]` is greater than `arr[j + 1]`:
+          - Swap `arr[j]` and `arr[j + 1]`.
+   - Return the sorted array `arr`.
 
 2. Create an array named `array` with random values.
 
