@@ -149,6 +149,44 @@ const array = [44, 34, 13, 12, 21, 16, 99];
 console.log("Sorted array:", bubbleSort(array));
 ```
 
+
+------------------------------------------------------------------------------------------
+## DSA DAY 4 : Selection sort
+
+#### Algorithm:
+1. Define an array named `array` with random values.
+
+2. Let `n` be the length of array.
+
+3. For `i` from `0 to n - 1`:
+    - Set `minIndex` to `i`.
+    - For `j` from `i + 1` to `n` :
+        - If `array[j]` is less than `array[minIndex]`, update `minIndex` to `j`.
+   - Swap `array[i]` with `array[minIndex]`.
+
+4. Output the sorted array `array`.
+
+#### Implementation:
+
+```js
+array= [10,8,13,30,4,12,2,9,1];
+n= array.length;
+for(let i=0;i<n-1;i++){
+    let minIndex=i;
+    for(let j=i+1;j<n;j++){
+        if (array[j]<array[minIndex]){
+            minIndex=j;
+        }
+    }
+    let temp_array = array[i];
+    array[i]=array[minIndex];
+    array[minIndex]=temp_array;
+
+}
+
+console.log(array);
+```
+
 ----------------------------------------------------------------------------
 
 ### Follow my DSA journey on:
