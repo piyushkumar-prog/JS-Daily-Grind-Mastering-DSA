@@ -189,6 +189,55 @@ console.log(array);
 
 ----------------------------------------------------------------------------
 
+## DSA DAY 5 : Insertion Sort
+
+#### Algorithm:
+1. Define an array named `myarray` with random values.
+
+2. Let `n` be the length of array.
+
+3. For each element in the array starting from the second element (index 1):
+   - Set `currentValue` to the element at index `i`.
+   - Set `insertIndex` to `i`.
+     
+4. Compare `currentValue` with each element in the sorted portion of the array (elements before index `i`):
+  - If `myArray[j]` is greater than `currentValue`:
+     - Shift `myArray[j]` to the right (to index `j+1`).
+     - Update insertIndex to `j`.
+  - If `myArray[j]` is not greater than `currentValue`:
+     - Break out of the inner loop (as the correct position for `currentValue` is found).
+
+5. Place `currentValue` at the position indicated by `insertIndex`.
+   
+6. Repeat Steps 3-5 until the entire array is sorted.
+
+7. Output the sorted array `myarray`.
+
+#### Implementation:
+
+```js
+let myArray = [77, 15, 25, 18, 21, 12, 95, 5];
+
+let n = myArray.length;
+for (let i = 1; i < n; i++) {
+    let insertIndex = i;
+    let currentValue = myArray[i];
+    for (let j = i - 1; j >= 0; j--) {
+        if (myArray[j] > currentValue) {
+            myArray[j + 1] = myArray[j];
+            insertIndex = j;
+        } else {
+            break;
+        }
+    }
+    myArray[insertIndex] = currentValue;
+}
+
+console.log("Sorted array:", myArray);
+```
+
+----------------------------------------------------------------------------
+
 ### Follow my DSA journey on:
 [![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
 [![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
