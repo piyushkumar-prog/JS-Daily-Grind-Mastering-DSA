@@ -238,6 +238,73 @@ console.log("Sorted array:", myArray);
 
 ----------------------------------------------------------------------------
 
+## DSA DAY 6 : Quick Sort
+
+#### Algorithm:
+1.Partition Function:
+
+  - Input: An array `array`, and two indices `low` and `high` indicating the segment of the array to partition.
+  - Output: The index of the pivot element after partitioning.
+  - Steps:
+   - Select the last element in the segment (`array[high]`) as the pivot.
+   - Initialize `i` to `low - 1` (to keep track of the position for the smaller element).
+   - Iterate over the segment from `low` to `high - 1`:
+      - If `array[j]` (current element) is less than or equal to the pivot:
+        - Increment `i`.
+        - Swap `array[i]` with `array[j]`.
+  - Swap `array[i + 1]` with the pivot element `array[high]` to place the pivot in its correct position.
+  - Return the index `i + 1`.
+
+2. QuickSort Function:
+
+ - Input: An array `array`, and optionally the starting index `low` and ending index `high` of the segment to be sorted.
+ - Output: None (the array is sorted in place).
+ - Steps:
+     - If `low` is less than `high`:
+       - Call `Partition` to partition the array and get the pivot index.
+       - Recursively call `QuickSort` on the two sub-arrays:
+         - From `low` to `pivotIndex - 1`.
+         - From `pivotIndex + 1` to `high`.
+           
+3. Initial Call:
+
+- The initial call to `QuickSort` sorts the entire array, starting from index 0 to `length(array) - 1`.
+- After sorting, the array is printed to show the sorted result.
+
+
+#### Implementation:
+
+```js
+let partition = (array, low, high) => {
+    let pivot = array[high];
+    let i = low - 1;
+
+    for (let j = low; j < high; j++) {
+        if (array[j] <= pivot) {
+            i++;
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    [array[i + 1], array[high]] = [array[high], array[i + 1]];
+    return i + 1;
+}
+
+let quicksort = (array, low = 0, high = array.length - 1) => {
+    if (low < high) {
+        let pivotIndex = partition(array, low, high);
+        quicksort(array, low, pivotIndex - 1);
+        quicksort(array, pivotIndex + 1, high);
+    }
+}
+
+let myArray = [64, 34, 25, 12, 22, 11, 90, 5];
+quicksort(myArray);
+console.log("Sorted array:", myArray);
+```
+
+----------------------------------------------------------------------------
+
 ### Follow my DSA journey on:
 [![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
 [![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
