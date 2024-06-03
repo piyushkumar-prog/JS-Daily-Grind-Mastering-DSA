@@ -305,6 +305,65 @@ console.log("Sorted array:", myArray);
 
 ----------------------------------------------------------------------------
 
+## DSA DAY 7 : Counting Sort
+
+#### Algorithm:
+1. Find the Maximum Value:
+  - Identify the largest number in the input array.
+    
+2. Initialize Count Array:
+  - Create a new array, `count`, with a length equal to the maximum value plus one. Initialize all elements in `count` to zero.
+    
+3. Count Occurrences:
+  - Iterate over each element in the input array.
+  - For each element, increment the corresponding count in `count` by one.
+
+4. Sort Array:
+  - Initialize a variable `sortedIndex` to zero, which will keep track of the current index in the output array.
+  - Iterate over each element in `count`.
+  - For each element in `count`, while its count is greater than zero:
+     - Place the current element at the current index in the output array.
+     - Decrement the count by one.
+
+5. Return Sorted Array:
+  - Return the sorted array.
+
+Example Usage:
+  - Define an input array, `unsortedArr`, containing the numbers .
+  - Call the `countingSort` function with `unsortedArr` as the input.
+  - Print the sorted array to the console.
+Output:
+  - The sorted array will be .
+
+#### Implementation:
+
+```js
+countingSort = (arr) => {
+    const maxVal = Math.max(...arr);
+    const count = new Array(maxVal + 1).fill(0);
+  
+    for (let i = 0; i < arr.length; i++) {
+      count[arr[i]]++;
+    }
+  
+    let sortedIndex = 0;
+    for (let i = 0; i < count.length; i++) {
+      while (count[i] > 0) {
+        arr[sortedIndex++] = i;
+        count[i]--;
+      }
+    }
+  
+    return arr;
+  }
+  
+  const unsortedArr = [4, 2, 2, 6, 3, 3, 1, 6, 5, 2, 3];
+  const sortedArr = countingSort(unsortedArr);
+  console.log("Sorted array:", sortedArr);
+```
+
+----------------------------------------------------------------------------
+
 ### Follow my DSA journey on:
 [![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
 [![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
