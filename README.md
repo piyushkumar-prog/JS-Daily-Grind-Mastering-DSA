@@ -364,6 +364,63 @@ countingSort = (arr) => {
 
 ----------------------------------------------------------------------------
 
+## DSA DAY 8 : Radix Sort
+
+#### Algorithm:
+Initialization:
+  - Create an array radixArray filled with 10 empty arrays.
+  - Find the maximum value in the input array myArray and store it in maxVal.
+  - Initialize exp to 1.
+
+Radix Loop:
+  - While maxVal / exp is greater than 0, perform the following steps:
+    - Distribution:
+      - While myArray is not empty, pop the last element from myArray and store it in val.
+      - Calculate the radix index by dividing val by exp and taking the remainder when divided by 10.
+      - Push val into the corresponding bucket in radixArray based on the calculated radix index.
+
+Collection:
+  - For each bucket in radixArray, while the bucket is not empty, pop the last element from the bucket and push it back into myArray.
+
+Increment Exponent:
+  - Multiply exp by 10.
+
+Repeat Radix Loop:
+  - Repeat steps 2-4 until maxVal / exp is no longer greater than 0.
+
+Final Output:
+  - Print the original array and the sorted array.
+
+
+#### Implementation:
+
+```js
+let myArray = [170, 45, 75, 90, 802, 24, 2, 66];
+let radixArray = new Array(10).fill(0).map(() => []);
+let maxVal = Math.max(...myArray);
+let exp = 1;
+
+while (maxVal / exp > 0) {
+    while (myArray.length > 0) {
+        let val = myArray.pop();
+        let radixIndex = Math.floor((val / exp) % 10);
+        radixArray[radixIndex].push(val);
+    }
+
+    for (let bucket of radixArray) {
+        while (bucket.length > 0) {
+            let val = bucket.pop();
+            myArray.push(val);
+        }
+    }
+    exp *= 10;
+}
+console.log("Original array:", myArray);
+console.log("Sorted array:", myArray);
+```
+
+----------------------------------------------------------------------------
+
 ### Follow my DSA journey on:
 [![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
 [![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
