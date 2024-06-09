@@ -421,6 +421,90 @@ console.log("Sorted array:", myArray);
 
 ----------------------------------------------------------------------------
 
+## DSA DAY 9 : Merge Sort
+
+#### Algorithm:
+
+1. Define the `mergeSort` function that takes an array `arr` as input.
+   
+2. Check if the length of the array is less than or equal to 1. If so, return the array as it is already sorted.
+   
+3. Calculate the middle index of the array using `Math.floor(arr.length / 2)`.
+   
+4. Create two new arrays: `leftHalf` and `rightHalf`.
+  - `leftHalf` will contain elements from the start of the original array up to (but not including) the middle index.
+  - `rightHalf` will contain elements from the middle index to the end of the original array.
+
+5. Recursively call the `mergeSort` function on `leftHalf` and `rightHalf` separately, storing the sorted results in `sortedLeft` and `sortedRight`.
+   
+6. Call the merge function with `sortedLeft` and `sortedRight` as arguments, and return the `result`.
+   
+7. Define the merge function that takes two sorted arrays left and right as input.
+    
+8. Initialize an empty array called `result`.
+    
+9. Initialize two variables `i` and `j` to 0, which will be used as indices for left and right arrays respectively.
+    
+10. While `i` is less than the length of left and `j` is less than the length of right:
+  - Compare the elements at indices `i` and `j` in left and right respectively.
+  - If the element in left is smaller, add it to `result` and increment `i`.
+  - If the element in right is smaller or equal, add it to `result` and increment `j`.
+    
+11. After the loop, concatenate any remaining elements from left and right to result.
+    
+12. Return the `result` array.
+    
+13. Create an unsorted array called `unsortedArr`.
+    
+14. Call the `mergeSort` function with `unsortedArr` as the argument and store the result in `sortedArr`.
+    
+15. Log the sorted array to the console.
+
+#### Implementation:
+
+```js
+mergeSort = (arr) => {
+    if (arr.length <= 1) {
+      return arr;
+    }
+  
+    const mid = Math.floor(arr.length / 2);
+    const leftHalf = arr.slice(0, mid);
+    const rightHalf = arr.slice(mid);
+  
+    const sortedLeft = mergeSort(leftHalf);
+    const sortedRight = mergeSort(rightHalf);
+  
+    return merge(sortedLeft, sortedRight);
+  }
+  
+  merge = (left, right) => {
+    let result = [];
+    let i = 0, j = 0;
+  
+    while (i < left.length && j < right.length) {
+      if (left[i] < right[j]) {
+        result.push(left[i]);
+        i++;
+      } else {
+        result.push(right[j]);
+        j++;
+      }
+    }
+  
+    result = result.concat(left.slice(i), right.slice(j));
+  
+    return result;
+  }
+  
+  const unsortedArr = [3, 7, 6, -10, 15, 23.5, 55, -13];
+  const sortedArr = mergeSort(unsortedArr);
+  console.log("Sorted array:", sortedArr);
+  
+```
+
+------------------------------------------------------------------------------------------
+
 ### Follow my DSA journey on:
 [![LinkedIn](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/linkedin.png)](https://www.linkedin.com/in/piyush-kumar-prog)
 [![Instagram](https://github.com/piyushkumar-prog/JS-Daily-Grind-Mastering-DSA/blob/main/instagram.png)](https://www.instagram.com/piyushkumar_dev)
